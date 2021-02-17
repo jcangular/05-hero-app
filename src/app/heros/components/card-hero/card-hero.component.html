@@ -1,0 +1,24 @@
+<mat-card fxLayout="column" fxLayoutAlign="space-between stretch">
+
+    <mat-card-header>
+        <mat-card-title>{{hero.superhero}}</mat-card-title>
+        <mat-card-subtitle>{{hero.alter_ego}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image src="assets/heros/{{hero.id}}.jpg" alt="">
+
+    <mat-card-content>
+        <h3>{{hero.publisher}}</h3>
+        <p>
+            <strong>Primera aparición</strong> {{hero.first_appearance}}
+            <br>
+            <strong>Personajes: </strong> {{hero.characters}}
+        </p>
+    </mat-card-content>
+
+    <mat-card-actions fxLayout="row" fxLayoutAlign="space-around">
+        <button mat-flat-button color="primary">Leer más</button>
+        <button mat-flat-button color="accent">Editar</button>
+    </mat-card-actions>
+
+</mat-card>

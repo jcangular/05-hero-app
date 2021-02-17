@@ -10,6 +10,7 @@ import { FindHeroComponent } from './pages/find-hero/find-hero.component';
 import { HeroComponent } from './pages/hero/hero.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListHeroComponent } from './pages/list-hero/list-hero.component';
+import { CardHeroComponent } from './components/card-hero/card-hero.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ListHeroComponent } from './pages/list-hero/list-hero.component';
         FindHeroComponent,
         HeroComponent,
         HomeComponent,
-        ListHeroComponent
+        ListHeroComponent,
+        CardHeroComponent
     ],
     imports: [
         CommonModule,
