@@ -1,1 +1,32 @@
-<p>find-hero works!</p>
+<section fxLayout="column" fxLayoutAlign="space-between">
+
+    <article>
+        <h1>Buscador de héroe</h1>
+        <mat-divider></mat-divider>
+    </article>
+
+    <article fxLayout="column">
+        <h3>Buscador</h3>
+        <mat-form-field>
+
+            <mat-label>Héroe</mat-label>
+            <input type="text" color="accent" placeholder="Escriba el nombre del héroe..." aria-label="Héroe" matInput
+                [(ngModel)]="term" [matAutocomplete]="auto" (input)="find()">
+
+            <mat-hint style="color: #f44336;" *ngIf="term && heros.length === 0">No se encontró ningún héroe con ese
+                nombre...!</mat-hint>
+
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selectHero($event)">
+                <mat-option *ngFor="let hero of heros" [value]="hero">
+                    {{hero.superhero}}
+                </mat-option>
+
+            </mat-autocomplete>
+        </mat-form-field>
+    </article>
+
+    <article fxFlex="30" fxFlexAlign="center" *ngIf="hero">
+        <app-card-hero [hero]="hero"></app-card-hero>
+    </article>
+
+</section>
