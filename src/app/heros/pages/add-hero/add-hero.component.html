@@ -1,1 +1,73 @@
-<p>add-hero works!</p>
+<h1>
+    {{editMode?'Editar':'Nuevo'}} Héroe
+    <small *ngIf="hero.superhero"> - {{hero.superhero}}</small>
+</h1>
+
+<section fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+    <article fxFlex="50" fxFlex.xs="100" fxLayout="column">
+
+        <div fxLayout="row" fxLayout.xs="column">
+
+            <mat-form-field fxFlex="48">
+                <mat-label>Super Héroe</mat-label>
+                <input matInput type="text" required autocomplete="off" [(ngModel)]="hero.superhero">
+            </mat-form-field>
+
+            <span fxHide.xs fxFlex="4"></span>
+
+            <mat-form-field fxFlex="48">
+                <mat-label>Alter Ego</mat-label>
+                <input matInput type="text" autocomplete="off" [(ngModel)]="hero.alter_ego">
+            </mat-form-field>
+
+        </div>
+
+        <mat-form-field>
+            <mat-label>Primera Aparición</mat-label>
+            <input matInput type="text" autocomplete="off" [(ngModel)]="hero.first_appearance">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Personajes</mat-label>
+            <input matInput type="text" autocomplete="off" [(ngModel)]="hero.characters">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Creador</mat-label>
+            <mat-select required [(ngModel)]="hero.publisher">
+                <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
+                    {{ publisher.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Foto URL</mat-label>
+            <input matInput type="text" autocomplete="off" [(ngModel)]="hero.alt_img">
+        </mat-form-field>
+
+        <br>
+
+        <div fxLayout="row" fxFlexAlign="space-between">
+
+            <button [fxFlex]="!editMode?100:40" mat-raised-button color="accent" (click)="save()">
+                <mat-icon>{{editMode?'save':'add'}}</mat-icon>
+                {{editMode?'Actualizar':'Agregar'}}
+            </button>
+
+            <span *ngIf="editMode" fxFlex="20"></span>
+
+            <button *ngIf="editMode" fxFlex="40" mat-raised-button color="warn" (click)="delete()">
+                <mat-icon>delete</mat-icon>
+                Elimnar
+            </button>
+        </div>
+
+    </article>
+
+    <article fxFlex="50" fxFlex.xs="100">
+        <img fxFlex="100" [src]="hero | imageHero" alt="imagen">
+    </article>
+
+</section>
