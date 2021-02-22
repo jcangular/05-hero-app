@@ -30,18 +30,23 @@
 
     </mat-sidenav>
 
-    <mat-toolbar>
+    <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
 
-        <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
+        <section>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </section>
 
-        <span class="spacer"></span>
+        <section fxLayoutGap="10px">
+            <!-- <span class="spacer"></span> -->
+            <span>{{user.name}}</span>
 
-        <button mat-stroked-button color="warn">
-            <mat-icon>logout</mat-icon>
-            Cerrar Sesión
-        </button>
+            <button mat-stroked-button color="warn" (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                Cerrar Sesión
+            </button>
+        </section>
 
     </mat-toolbar>
 
